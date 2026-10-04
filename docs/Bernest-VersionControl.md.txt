@@ -1,0 +1,110 @@
+# Instructions
+
+Update this document where indicated [look for the brackets!]. Replace text inside the brackets with your own information. For example: Course Name should be the name of this course, and not the generic words "Course Name".
+
+<br>
+
+## [ COS119-O 01 ]
+
+- **[ Brandon Ernest ]**
+- **[ 10-4-26 ]**
+
+This paper addresses some of the topic matter covered in research and activity this week. Be sure to include reference links below to the research and information you used to complete this assignment.
+
+## Topic: Terminal
+
+Professional developers use Terminal daily. It's essential to understand some fundamental commands to use the application.
+
+Update the information below to demonstrate your knowledge on this topic.
+
+**1. Using Terminal, there are essential commands to know.**
+
+List the correct Terminal commands to do the actions listed below. Replace **CMD** with the correct command sequence. You can keep or enhance the brief description.
+
+**The last bullet provides an example**.
+
+- [ctrl + l]: Clear the Screen
+- [pwd]: Print the "Working Directory"
+- [ls]: List files and folders
+- [ls-a]: List files and folders, including invisible files
+- [ls -lh]: List all files and folders, in human readable form
+- [cd]: Change directory
+- [cd /]: Change directory, go to root directory
+- [cd ~]: Change directory and go to user home directory
+- [cd ..]: Change directory, go up one folder level
+- [cd../..]: Change directory, go up two folder levels
+- [cd ~/desktop]: Change directory to my desktop!
+
+**2. Using Terminal...**
+
+**Folder Drop:** Try typing "cd" followed by a space, and then drag a folder into terminal and press return. Test this out and describe your results below.
+
+[When typing cd into command line and dragged a folder into the terminal, the interface populated the entire file path. When you hit enter, the command changed my current directory to the folder I dropped folder. You can use this as a shortcut rather than having to type long poaths.]
+
+## Topic: Version Control & Git
+
+Version control, also known as revision control, records changes to a file or set of files over time so that you can recall specific versions later. In this class, we are learning Git. Update the information below where indicated.
+
+**1. There are three types of version control.**
+
+[Long Version Control Systems- Uses a simple database on the local computer to track changes to files.
+CVCS- Uses a single centralized server that contains all the versioned files, and several clients check out the files from that central place.
+DVCS- Clients fully mirror the repo, if any server dies, any of the client repos can back up to the server to restore]
+
+**2. Using Terminal, there are also essential Git commands to know.**
+
+List the correct Git commands to do the actions listed below in Terminal. Replace CMD with the correct command and keep or enhance the brief description.
+
+- [git clone <repo_url>]: Clone a repository
+- [git config –global user.name “Enter name”]: Set-up a global user name
+- [git config –global user.email “enter email”]: Set-up a global email address (to match my GitHub account email)
+- [git status]: Shows the current state of your directory and staging area
+- [git add <file_name>]: Add modified files to the next commit
+- [git commit -m “enter message”]: Make a commit with a new message
+- [git log]: Show my commit history
+- [git --help]: Show Git's help screen
+
+**3. Connecting to GitHub using Terminal.**
+HTTPS is the the correct way to connect to GitHub in this course. Describe how you connect to GitHub from Terminal using this protocol. What steps do you take?
+
+[To connect to GitHub via HTTPS using the Terminal, you first navigate to the GitHub repository web page and copy the HTTPS clone URL. In your Terminal, you use the git clone <URL> command to download the repository. When pushing changes back to GitHub, you will be prompted to authenticate. Because GitHub no longer accepts account passwords for command-line authentication, you must use a Personal Access Token (PAT) or the GitHub Credential Manager as your password to securely verify your identity]
+
+**4. Using .gitignore and Why it's Important**  
+Most repositories contain a .gitignore file.
+
+- What is the purpose of this file?
+  <br>
+  [.gitignore tells Git which files to track or ignore. Prevents unnecessary files from being uploaded to your repo.]
+
+- What is the "**.DS_Store**" file and why would you want to ignore it?
+  <br>
+  [.DS_Store is a hidden file automatically created by the macOS operating system]
+
+- What other file or folder would you want to add to a .gitignore file and why?
+  <br>
+  [.env files… These files contain sensitive information such as api keys and passwords. They must be ignored to prevent security leaks.]
+
+<br>
+
+# Reference Links
+
+Replace the example references below with your own links and recommended resources. It is acceptable to provide multiple links for a single topic and to use material provided to you in this class. You are encouraged to link to your own independent research as well.
+
+[ Research Summary: What resource(s) did you find most helpful this past week and why? ]
+
+**Terminal Commands**  
+https://support.apple.com/en-ca/guide/terminal/welcome/mac
+
+**Three Types of Version Control**  
+https://git-scm.com/book/ms/v2/Getting-Started-About-Version-Control/)
+
+**Git Commands**
+https://education.github.com/git-cheat-sheet-education.pdf
+
+Connecting to GitHub
+
+https://docs.github.com/en/repositories/creating-and-managing-repositories/cloning-a-repository?tool=cli
+
+**Using .gitignore and Why it's Important**  
+https://docs.github.com/en/get-started/git-basics/ignoring-files
+
