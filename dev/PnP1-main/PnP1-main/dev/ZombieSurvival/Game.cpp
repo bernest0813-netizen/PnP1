@@ -1,6 +1,7 @@
 #include "Game.h"
 #include <iostream>
 
+
 void Game::start()
 {
     std::cout << "================================\n";
@@ -9,14 +10,20 @@ void Game::start()
 
     std::cout << "A zombie has appeared!\n\n";
 
-    showStatus();
-}
+    int playerDamage = player.attack();
 
-void Game::showStatus()
-{
-    std::cout << "Player Health: "
-        << player.getHealth() << "\n";
+    zombie.takeDamage(playerDamage);
 
-    std::cout << "Zombie Health: "
-        << zombie.getHealth() << "\n";
+    std::cout << "\nZombie Health: "
+        << zombie.getHealth() << "\n\n";
+
+    if (zombie.getHealth() > 0)
+    {
+        int zombieDamage = zombie.attack();
+
+        player.takeDamage(zombieDamage);
+
+        std::cout << "Player Health: "
+            << player.getHealth() << "\n";
+    }
 }

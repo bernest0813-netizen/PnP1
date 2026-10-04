@@ -8,9 +8,11 @@ Player::Player()
 	score = 0;
 }
 
-void Player::attack()
+int Player::attack()
 {
-	std::cout << "The player attacks the zombie!\n";
+	std::cout << "You attack the zombie for " << attackPower << " damage.\n";
+	
+	return attackPower;
 }
 
 void Player::takeDamage(int damage)

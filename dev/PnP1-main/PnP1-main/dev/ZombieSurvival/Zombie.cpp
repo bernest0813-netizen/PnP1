@@ -7,9 +7,11 @@ Zombie::Zombie()
     attackPower = 10;
 }
 
-void Zombie::attack()
+int Zombie::attack()
 {
-    std::cout << "The zombie attacks!\n";
+    std::cout << "The zombie attacks for " << attackPower << " damage!\n";
+    
+    return attackPower;
 }
 
 void Zombie::takeDamage(int damage)

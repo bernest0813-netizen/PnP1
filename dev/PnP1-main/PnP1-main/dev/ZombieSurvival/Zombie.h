@@ -9,7 +9,7 @@ private:
 public:
 	Zombie();
 
-	void attack();
+	int attack();
 	void takeDamage(int damage);
 
 	int getHealth() const;

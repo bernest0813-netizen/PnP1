@@ -10,7 +10,7 @@ private:
 public:
 	Player();
 
-	void attack();
+	int attack();
 	void takeDamage(int damage);
 	void heal();
 
