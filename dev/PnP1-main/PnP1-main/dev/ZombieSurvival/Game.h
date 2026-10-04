@@ -11,4 +11,5 @@ private:
 public:
 	void start();
 	void showStatus();
+	void combat();
 };
