@@ -1,17 +1,40 @@
 #include "Game.h"
 #include <iostream>
 
-
 void Game::start()
 {
-    std::cout << "================================\n";
-    std::cout << "   LAST STAND: ZOMBIE SURVIVAL\n";
-    std::cout << "================================\n\n";
+    bool playing = true;
 
-    std::cout << "A zombie has appeared!\n\n";
+    while (playing)
+    {
+        std::cout << "================================\n";
+        std::cout << "   LAST STAND: ZOMBIE SURVIVAL\n";
+        std::cout << "================================\n\n";
 
-    combat();
+        std::cout << "A zombie has appeared!\n\n";
 
+        combat();
+
+        char choice;
+
+        std::cout << "\nWould you like to play again? (y/n): ";
+        std::cin >> choice;
+
+        if (choice != 'y' && choice != 'Y')
+        {
+            playing = false;
+        }
+        else
+        {
+            // Create a fresh player and zombie
+            player = Player();
+            zombie = Zombie();
+
+            std::cout << "\nStarting a new game...\n\n";
+        }
+    }
+
+    std::cout << "\nThanks for playing Last Stand!\n";
 }
 
 void Game::combat()
@@ -51,7 +74,7 @@ void Game::combat()
         else if (choice == 3)
         {
             std::cout << "\nYou ran away!\n";
-            break;
+            return;
         }
         else
         {
@@ -63,16 +86,23 @@ void Game::combat()
 
     if (player.getHealth() <= 0)
     {
-        std::cout << "You were defeated by the zombie!\n";
+        std::cout << "================================\n";
+        std::cout << "          GAME OVER\n";
+        std::cout << "================================\n";
     }
     else if (zombie.getHealth() <= 0)
     {
-        std::cout << "You defeated the zombie!\n";
+        std::cout << "================================\n";
+        std::cout << "       ZOMBIE DEFEATED!\n";
+        std::cout << "================================\n";
     }
 }
 
 void Game::showStatus()
 {
-    std::cout << "Player Health:" << player.getHealth() << "\n";
-    std::cout << "Zombie Health:" << zombie.getHealth() << "\n";
+    std::cout << "Player Health: "
+        << player.getHealth() << "\n";
+
+    std::cout << "Zombie Health: "
+        << zombie.getHealth() << "\n";
 }
