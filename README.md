@@ -1,23 +1,5 @@
 # 🚀 Welcome to Project & Portfolio!
 
-This repository will be used to keep track of research and development conducted in this class. Follow the instructions below to get started.
-cos
-### Getting Started
-
-**1.** Review the [About](./docs/01_about/README.md) README and all of the links it provides.
-
-**2.** Review the documentation and [Getting Started](./docs/02_getting_started/README.md) steps in this repository's docs folder.
-
-**3.** Attend the first Live Lecture to see a live setup demo. If you are unable to attend, make sure to watch the archive.
-
-### Next Steps...
-
-After completing the above steps, feel free to begin updating this readme where indicated below. Remember to update this document each week to receive proper credit for the weekly Milestone assignment.
-
-<br>
-
-> ❗️ &nbsp; Now that you have read to this point, go ahead and delete this sentence and everything above it.
-
 <br>
 
 # Project & Portfolio 1
@@ -44,7 +26,7 @@ Each week I will summarize my milestone activity and progress by writing a stand
 
 ### Week 1
 
-Replace this paragraph with your stand up for this week. Use the prompts above to summarize your most recent milestone activity and work.
+This week I got a SUPER late start on all the work, my apologies. Work has been insane with our manager on vacation it kinda falls onto me (YAY!). SO! I populated my project board with my first few objectives like getting classes built and organized. So far we have a running and successful loop of my zombie survival game. Right now there is just 1v1 combat with an option to run away, but I plan on adding more zombies and wave style combat.
 
 ### Week 2
 
