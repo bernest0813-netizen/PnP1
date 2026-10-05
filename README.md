@@ -6,7 +6,7 @@
 
 ### Student First & Last Name
 
-Hello my name is [enter name]. I am a student from [where are you from?]. The purpose of this repository is to practice development using version control. This work will help me begin to build a portfolio of skills and accomplishment that can be shared in the future.
+Hello my name is Brandon Ernest. I am a student from Baltimore, Maryland. The purpose of this repository is to practice development using version control. This work will help me begin to build a portfolio of skills and accomplishment that can be shared in the future.
 
 <br>
 
@@ -26,7 +26,7 @@ Each week I will summarize my milestone activity and progress by writing a stand
 
 ### Week 1
 
-Replace this paragraph with your stand up for this week. Use the prompts above to summarize your most recent milestone activity and work.
+This week I got a SUPER late start on all the work, my apologies. Work has been insane with our manager on vacation it kinda falls onto me (YAY!). SO! I populated my project board with my first few objectives like getting classes built and organized. So far we have a running and successful loop of my zombie survival game. Right now there is just 1v1 combat with an option to run away, but I plan on adding more zombies and wave style combat.
 
 ### Week 2
 
