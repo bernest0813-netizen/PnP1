@@ -23,9 +23,12 @@ void Game::start()
 
             int zombieCount = currentWave + 2;
 
+            int zombieHealth = 50 + (currentWave - 1) * 10;
+            int zombieDamage = 10 + (currentWave - 1) * 2;
+
             for (int i = 0; i < zombieCount; i++)
             {
-                zombies.push_back(Zombie());
+                zombies.push_back(Zombie(zombieHealth, zombieDamage));
             }
 
             std::cout << "================================\n";
@@ -159,6 +162,9 @@ void Game::showStatus()
     {
         std::cout << "Current Zombie Health: "
             << zombies.front().getHealth() << "\n";
+
+        std::cout << "Current Zombie Attack Power: "
+            << zombies.front().getAttackPower() << "\n";
     }
 
     std::cout << "Score: "
