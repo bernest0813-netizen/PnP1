@@ -24,7 +24,7 @@ After completing the above steps, feel free to begin updating this readme where 
 
 ### Student First & Last Name
 
-Hello my name is [enter name]. I am a student from [where are you from?]. The purpose of this repository is to practice development using version control. This work will help me begin to build a portfolio of skills and accomplishment that can be shared in the future.
+Hello my name is [Brandon Ernest]. I am a student from [Baltimore, Maryland]. The purpose of this repository is to practice development using version control. This work will help me begin to build a portfolio of skills and accomplishment that can be shared in the future.
 
 <br>
 
@@ -44,11 +44,11 @@ Each week I will summarize my milestone activity and progress by writing a stand
 
 ### Week 1
 
-Replace this paragraph with your stand up for this week. Use the prompts above to summarize your most recent milestone activity and work.
+I worked to get the main menu function up and running, as well as the basic start of the combat system and gameplay loop. I accomplished that as it fully runs from start to finish with no hiccups. Next, I plan to make it more difficult but reward the player as they progress through the game.
 
 ### Week 2
 
-My next stand up will go here...
+I am currently working to add a wave system, as well as special zombie types and hope to add a loot system into the game as well. My goal is to level up my work with my data structures and make the game clean. After this is completed, I'd like to add in a challenge system and a way to upgrade your gear.
 
 ### Week 3
 

@@ -6,6 +6,11 @@ Zombie::Zombie()
     health = 50;
     attackPower = 10;
 }
+Zombie::Zombie(int startingHealth, int startingAttackPower)
+{
+    health = startingHealth;
+    attackPower = startingAttackPower;
+}
 
 int Zombie::attack()
 {
@@ -27,4 +32,8 @@ void Zombie::takeDamage(int damage)
 int Zombie::getHealth() const
 {
     return health;
+}
+int Zombie::getAttackPower() const
+{
+    return attackPower;
 }

@@ -8,9 +8,10 @@ private:
 
 public:
 	Zombie();
+	Zombie(int startingHealth, int startingAttackPower);
 
 	int attack();
 	void takeDamage(int damage);
-
 	int getHealth() const;
+	int getAttackPower() const;
 };
