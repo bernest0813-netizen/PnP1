@@ -49,3 +49,13 @@ void Player::addScore(int points)
 {
 	score += points;
 }
+void Player::rewardHealth()
+{
+	health += 15;
+
+	if (health > 100)
+	{
+		health = 100;
+	}
+	std::cout << "Wave Survival Bonus! +15 Health!\n";
+}

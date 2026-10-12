@@ -72,6 +72,7 @@ void Game::start()
             }
             else
             {
+                player.rewardHealth();
                 std::cout << "\n================================\n";
                 std::cout << "       WAVE " << currentWave << " CLEARED!\n";
                 std::cout << "================================\n";

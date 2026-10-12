@@ -13,6 +13,7 @@ public:
 	int attack();
 	void takeDamage(int damage);
 	void heal();
+	void rewardHealth();
 
 	int getHealth() const;
 	int getScore() const;
