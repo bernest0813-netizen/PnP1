@@ -30,7 +30,7 @@ This week I got a SUPER late start on all the work, my apologies. Work has been 
 
 ### Week 2
 
-My next stand up will go here...
+I am currently working to add a wave system, as well as special zombie types and hope to add a loot system into the game as well. My goal is to level up my work with my data structures and make the game clean. After this is completed, I'd like to add in a challenge system and a way to upgrade your gear.
 
 ### Week 3
 
