@@ -1,5 +1,7 @@
 #include "Game.h"
 #include <iostream>
+#include <cstdlib>
+
 
 Game::Game()
 {
@@ -23,11 +25,36 @@ void Game::start()
 
             int zombieCount = currentWave + 2;
 
-            int zombieHealth = 50 + (currentWave - 1) * 10;
-            int zombieDamage = 10 + (currentWave - 1) * 2;
-
             for (int i = 0; i < zombieCount; i++)
             {
+                int zombieType = rand() % 3;
+
+                int zombieHealth;
+                int zombieDamage;
+
+                if (zombieType == 0)
+                {
+                    // Normal Zombie
+                    zombieHealth = 50;
+                    zombieDamage = 10;
+                }
+                else if (zombieType == 1)
+                {
+                    // Runner Zombie
+                    zombieHealth = 30;
+                    zombieDamage = 15;
+                }
+                else
+                {
+                    // Tank Zombie
+                    zombieHealth = 100;
+                    zombieDamage = 8;
+                }
+
+                // Increase difficulty with each wave
+                zombieHealth += (currentWave - 1) * 10;
+                zombieDamage += (currentWave - 1) * 2;
+
                 zombies.push_back(Zombie(zombieHealth, zombieDamage));
             }
 
