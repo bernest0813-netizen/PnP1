@@ -16,4 +16,5 @@ public:
 
 	int getHealth() const;
 	int getScore() const;
+	void addScore(int points);
 };

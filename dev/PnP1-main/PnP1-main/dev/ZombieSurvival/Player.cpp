@@ -45,3 +45,7 @@ int Player::getScore() const
 {
 	return score;
 }
+void Player::addScore(int points)
+{
+	score += points;
+}

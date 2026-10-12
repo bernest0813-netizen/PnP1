@@ -1,19 +1,69 @@
 #include "Game.h"
 #include <iostream>
 
+Game::Game()
+{
+    currentWave = 1;
+}
+
 void Game::start()
 {
     bool playing = true;
 
     while (playing)
     {
+        player = Player();
+        currentWave = 1;
+
+        bool survived = true;
+
+        while (survived)
+        {
+            zombies.clear();
+
+            int zombieCount = currentWave + 2;
+
+            for (int i = 0; i < zombieCount; i++)
+            {
+                zombies.push_back(Zombie());
+            }
+
+            std::cout << "================================\n";
+            std::cout << "   LAST STAND: ZOMBIE SURVIVAL\n";
+            std::cout << "================================\n";
+            std::cout << "\nWAVE " << currentWave << "!\n";
+            std::cout << zombieCount << " zombies approach!\n\n";
+
+            combat();
+
+            if (player.getHealth() <= 0)
+            {
+                survived = false;
+            }
+            else
+            {
+                std::cout << "\n================================\n";
+                std::cout << "       WAVE " << currentWave << " CLEARED!\n";
+                std::cout << "================================\n";
+
+                std::cout << "Health remaining: "
+                    << player.getHealth() << "\n";
+
+                std::cout << "Score: "
+                    << player.getScore() << "\n";
+
+                std::cout << "\nPress ENTER to continue to the next wave...";
+                std::cin.ignore(10000, '\n');
+                std::cin.get();
+
+                currentWave++;
+            }
+        }
+
+        std::cout << "\n================================\n";
+        std::cout << "          GAME OVER\n";
         std::cout << "================================\n";
-        std::cout << "   LAST STAND: ZOMBIE SURVIVAL\n";
-        std::cout << "================================\n\n";
-
-        std::cout << "A zombie has appeared!\n\n";
-
-        combat();
+        std::cout << "Final Score: " << player.getScore() << "\n";
 
         char choice;
 
@@ -26,10 +76,6 @@ void Game::start()
         }
         else
         {
-            // Create a fresh player and zombie
-            player = Player();
-            zombie = Zombie();
-
             std::cout << "\nStarting a new game...\n\n";
         }
     }
@@ -41,8 +87,13 @@ void Game::combat()
 {
     int choice = 0;
 
-    while (player.getHealth() > 0 && zombie.getHealth() > 0)
+    while (player.getHealth() > 0)
     {
+        if (zombies.empty())
+        {
+            return;
+        }
+
         showStatus();
 
         std::cout << "\nWhat would you like to do?\n";
@@ -56,11 +107,19 @@ void Game::combat()
         if (choice == 1)
         {
             int playerDamage = player.attack();
-            zombie.takeDamage(playerDamage);
 
-            if (zombie.getHealth() > 0)
+            zombies.front().takeDamage(playerDamage);
+
+            if (zombies.front().getHealth() <= 0)
             {
-                int zombieDamage = zombie.attack();
+                std::cout << "\nZombie defeated! +10 points!\n";
+                player.addScore(10);
+                zombies.erase(zombies.begin());
+            }
+
+            if (!zombies.empty())
+            {
+                int zombieDamage = zombies.front().attack();
                 player.takeDamage(zombieDamage);
             }
         }
@@ -68,13 +127,13 @@ void Game::combat()
         {
             player.heal();
 
-            int zombieDamage = zombie.attack();
+            int zombieDamage = zombies.front().attack();
             player.takeDamage(zombieDamage);
         }
         else if (choice == 3)
         {
             std::cout << "\nYou ran away!\n";
-            return;
+            player.takeDamage(player.getHealth());
         }
         else
         {
@@ -83,26 +142,25 @@ void Game::combat()
 
         std::cout << "\n";
     }
-
-    if (player.getHealth() <= 0)
-    {
-        std::cout << "================================\n";
-        std::cout << "          GAME OVER\n";
-        std::cout << "================================\n";
-    }
-    else if (zombie.getHealth() <= 0)
-    {
-        std::cout << "================================\n";
-        std::cout << "       ZOMBIE DEFEATED!\n";
-        std::cout << "================================\n";
-    }
 }
 
 void Game::showStatus()
 {
-    std::cout << "Player Health: "
+    std::cout << "\nPlayer Health: "
         << player.getHealth() << "\n";
 
-    std::cout << "Zombie Health: "
-        << zombie.getHealth() << "\n";
+    std::cout << "Current Wave: "
+        << currentWave << "\n";
+
+    std::cout << "Zombies Remaining: "
+        << zombies.size() << "\n";
+
+    if (!zombies.empty())
+    {
+        std::cout << "Current Zombie Health: "
+            << zombies.front().getHealth() << "\n";
+    }
+
+    std::cout << "Score: "
+        << player.getScore() << "\n";
 }
