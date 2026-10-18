@@ -158,16 +158,33 @@ void Game::combat()
 
             if (!zombies.empty())
             {
-                int zombieDamage = zombies.front().attack();
-                player.takeDamage(zombieDamage);
+                for (Zombie& zombie : zombies)
+                {
+                    if (player.getHealth() <= 0)
+                    {
+                        break;
+                    }
+
+                    int zombieDamage = zombies.front().attack();
+                    player.takeDamage(zombieDamage);
+                }
             }
         }
         else if (choice == 2)
         {
             player.heal();
 
-            int zombieDamage = zombies.front().attack();
-            player.takeDamage(zombieDamage);
+            for (Zombie& zombie : zombies)
+            {
+                if (player.getHealth() <= 0)
+                {
+                    break;
+                }
+                int zombieDamage = zombie.attack();
+                player.takeDamage(zombieDamage);
+            }
+
+           
         }
         else if (choice == 3)
         {
@@ -181,7 +198,7 @@ void Game::combat()
 
         std::cout << "\n";
     }
-}
+ }
 
 void Game::showStatus()
 {
