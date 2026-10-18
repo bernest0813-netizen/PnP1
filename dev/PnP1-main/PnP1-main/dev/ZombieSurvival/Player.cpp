@@ -1,5 +1,6 @@
 #include "Player.h"
 #include <iostream>
+#include <random>
 
 Player::Player()
 {
@@ -10,9 +11,20 @@ Player::Player()
 
 int Player::attack()
 {
-	std::cout << "You attack the zombie for " << attackPower << " damage.\n";
-	
-	return attackPower;
+	static std::random_device rd;
+	static std::mt19937 gen(rd());
+	std::uniform_int_distribution<int> chance(1, 100);
+
+	int damage = attackPower;
+
+	if (chance(gen) <= 20)
+	{
+		damage *= 2;
+		std::cout << "\nCRITICAL HIT!\n";
+	}
+	std::cout << "You attack the zombie for " << damage << " damage.\n";
+
+	return damage;
 }
 
 void Player::takeDamage(int damage)
