@@ -134,6 +134,14 @@ void Game::combat()
         std::cout << "\nChoose an option: ";
 
         std::cin >> choice;
+        if (std::cin.fail())
+        {
+            std::cin.clear();
+            std::cin.ignore(10000, '\n');
+
+            std::cout << "\nInvalid input. Please enter a number.\n";
+            continue;
+        }
 
         if (choice == 1)
         {
