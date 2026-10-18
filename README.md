@@ -34,7 +34,7 @@ I am currently working to add a wave system, as well as special zombie types and
 
 ### Week 3
 
-Stay tuned, this stand up is coming soon...
+This week, I fixed the menu input bug, added a critical hit possibility, finally added the effect of having multiple zombies attack at once and also added a defensive option in the menu. It was a struggle of a week after having a busy work week and also driving to Maryland and getting back 5am on Sunday. But we're rocking and moving along!
 
 ### Week 4
 
