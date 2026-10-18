@@ -131,6 +131,7 @@ void Game::combat()
         std::cout << "1. Attack\n";
         std::cout << "2. Heal\n";
         std::cout << "3. Run\n";
+        std::cout << "4. Block\n";
         std::cout << "\nChoose an option: ";
 
         std::cin >> choice;
@@ -191,9 +192,26 @@ void Game::combat()
             std::cout << "\nYou ran away!\n";
             player.takeDamage(player.getHealth());
         }
+        else if (choice == 4)
+        {
+            std::cout << "\n You brace yourself for the horde!\n";
+
+            for (Zombie& zombie : zombies)
+            {
+                if (player.getHealth() <= 0)
+                {
+                    break;
+                }
+                int zombieDamage = zombie.attack();
+                int blockedDamage = zombieDamage / 2;
+
+                player.takeDamage(blockedDamage);
+            }
+            std::cout << "You blocked 50% of incoming damage!\n";
+        }
         else
         {
-            std::cout << "\nInvalid choice. Please choose 1, 2, or 3.\n";
+            std::cout << "\nInvalid choice. Please choose 1, 2, 3, or 4.\n";
         }
 
         std::cout << "\n";
