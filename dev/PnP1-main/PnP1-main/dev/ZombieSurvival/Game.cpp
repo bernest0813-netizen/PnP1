@@ -159,12 +159,33 @@ void Game::combat()
             }
 
             zombies.front().takeDamage(playerDamage);
-
-            if (zombies.front().getHealth() <= 0)
+            
+            if (choice == 2 && zombies.size() > 1)
             {
-                std::cout << "\nZombie defeated! +10 points!\n";
-                player.addScore(10);
-                zombies.erase(zombies.begin());
+                int splashDamage = playerDamage / 2;
+
+                for (size_t i = 1; i < zombies.size(); i++)
+                {
+                    zombies[i].takeDamage(splashDamage);
+                }
+
+                std::cout << "\nSplash damage hits the remaining zombies for "
+                    << splashDamage << " damage each!\n";
+            }
+
+            for (auto it = zombies.begin(); it != zombies.end();)
+            {
+                if (it->getHealth() <= 0)
+                {
+                    std::cout << "\nZombie defeated! +10 points!\n";
+                    player.addScore(10);
+
+                    it = zombies.erase(it);
+                }
+                else
+                {
+                    ++it;
+                }
             }
 
             if (!zombies.empty())
@@ -176,7 +197,7 @@ void Game::combat()
                         break;
                     }
 
-                    int zombieDamage = zombies.front().attack();
+                    int zombieDamage = zombie.attack();
                     player.takeDamage(zombieDamage);
                 }
             }
