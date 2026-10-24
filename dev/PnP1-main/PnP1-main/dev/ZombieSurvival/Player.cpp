@@ -7,6 +7,7 @@ Player::Player()
 	health = 100;
 	attackPower = 20;
 	score = 0;
+	weaponDamage = 15;
 }
 
 int Player::attack()
@@ -15,7 +16,7 @@ int Player::attack()
 	static std::mt19937 gen(rd());
 	std::uniform_int_distribution<int> chance(1, 100);
 
-	int damage = attackPower;
+	int damage = attackPower + weaponDamage;
 
 	if (chance(gen) <= 20)
 	{

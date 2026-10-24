@@ -6,6 +6,7 @@ private:
 	int health;
 	int attackPower;
 	int score;
+	int weaponDamage;
 
 public:
 	Player();
