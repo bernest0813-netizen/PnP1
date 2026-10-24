@@ -31,31 +31,35 @@ void Game::start()
 
                 int zombieHealth;
                 int zombieDamage;
+                std::string zombieName;
 
                 if (zombieType == 0)
                 {
                     // Normal Zombie
                     zombieHealth = 50;
                     zombieDamage = 10;
+                    zombieName = "Normal";
                 }
                 else if (zombieType == 1)
                 {
                     // Runner Zombie
                     zombieHealth = 30;
                     zombieDamage = 15;
+                    zombieName = "Runner";
                 }
                 else
                 {
                     // Tank Zombie
                     zombieHealth = 100;
                     zombieDamage = 8;
+                    zombieName = "Tank";
                 }
 
                 // Increase difficulty with each wave
                 zombieHealth += (currentWave - 1) * 10;
                 zombieDamage += (currentWave - 1) * 2;
 
-                zombies.push_back(Zombie(zombieHealth, zombieDamage));
+                zombies.push_back(Zombie(zombieHealth, zombieDamage, zombieName));
             }
 
             std::cout << "================================\n";
@@ -157,6 +161,10 @@ void Game::combat()
             {
                 playerDamage = player.attack();
             }
+            std::cout << "\nYou hit the "
+                << zombies.front().getZombieType()
+                << " Zombie for " << playerDamage
+                << " damage!\n";
 
             zombies.front().takeDamage(playerDamage);
             
@@ -164,20 +172,26 @@ void Game::combat()
             {
                 int splashDamage = playerDamage / 2;
 
+                std::cout << "\nSPLASH DAMAGE!\n";
+
                 for (size_t i = 1; i < zombies.size(); i++)
                 {
+                    std::cout << zombies[i].getZombieType()
+                        << " Zombie takes "
+                        << splashDamage
+                        << " splash damage!\n";
+
                     zombies[i].takeDamage(splashDamage);
                 }
-
-                std::cout << "\nSplash damage hits the remaining zombies for "
-                    << splashDamage << " damage each!\n";
             }
 
             for (auto it = zombies.begin(); it != zombies.end();)
             {
                 if (it->getHealth() <= 0)
                 {
-                    std::cout << "\nZombie defeated! +10 points!\n";
+                    std::cout << "\n"
+                        << it->getZombieType()
+                        << " Zombie defeated! +10 points!\n";
                     player.addScore(10);
 
                     it = zombies.erase(it);
