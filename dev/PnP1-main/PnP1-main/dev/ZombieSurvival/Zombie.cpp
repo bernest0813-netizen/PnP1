@@ -5,11 +5,13 @@ Zombie::Zombie()
 {
     health = 50;
     attackPower = 10;
+    zombieType = "Normal";
 }
-Zombie::Zombie(int startingHealth, int startingAttackPower)
+Zombie::Zombie(int startingHealth, int startingAttackPower, std::string type)
 {
     health = startingHealth;
     attackPower = startingAttackPower;
+    zombieType = type;
 }
 
 int Zombie::attack()
@@ -36,4 +38,8 @@ int Zombie::getHealth() const
 int Zombie::getAttackPower() const
 {
     return attackPower;
+}
+std::string Zombie::getZombieType() const
+{
+	return zombieType;
 }
