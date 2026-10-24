@@ -38,4 +38,6 @@ This week, I fixed the menu input bug, added a critical hit possibility, finally
 
 ### Week 4
 
-My final stand up...
+**What did I accomplish this week?**
+
+This week, I focused on expanding the combat system in *LastStandZombieSurvival*. I completed four meaningful commits that introduced weapon damage, weapon selection, splash damage, and improved combat feedback. I also added zombie identification so players can distinguish between different enemy types during combat. All changes were tested, pushed to GitHub, and successfully merged into the main branch.
