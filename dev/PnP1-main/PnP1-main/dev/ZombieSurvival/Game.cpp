@@ -129,9 +129,10 @@ void Game::combat()
 
         std::cout << "\nWhat would you like to do?\n";
         std::cout << "1. Attack\n";
-        std::cout << "2. Heal\n";
-        std::cout << "3. Run\n";
-        std::cout << "4. Block\n";
+		std::cout << "2. Weapon Attack\n";
+        std::cout << "3. Block\n";
+        std::cout << "4. Heal\n";
+        std::cout << "5. Flee\n";
         std::cout << "\nChoose an option: ";
 
         std::cin >> choice;
@@ -144,9 +145,18 @@ void Game::combat()
             continue;
         }
 
-        if (choice == 1)
+		if (choice == 1 || choice == 2)
         {
-            int playerDamage = player.attack();
+            int playerDamage;
+
+            if (choice == 1)
+            {
+                playerDamage = player.basicAttack();
+            }
+            else
+            {
+                playerDamage = player.attack();
+            }
 
             zombies.front().takeDamage(playerDamage);
 
@@ -171,7 +181,7 @@ void Game::combat()
                 }
             }
         }
-        else if (choice == 2)
+        else if (choice == 4)
         {
             player.heal();
 
@@ -187,12 +197,12 @@ void Game::combat()
 
            
         }
-        else if (choice == 3)
+        else if (choice == 5)
         {
             std::cout << "\nYou ran away!\n";
             player.takeDamage(player.getHealth());
         }
-        else if (choice == 4)
+        else if (choice == 3)
         {
             std::cout << "\n You brace yourself for the horde!\n";
 
@@ -211,7 +221,7 @@ void Game::combat()
         }
         else
         {
-            std::cout << "\nInvalid choice. Please choose 1, 2, 3, or 4.\n";
+            std::cout << "\nInvalid choice. Please choose a number between 1 and 5.\n";
         }
 
         std::cout << "\n";

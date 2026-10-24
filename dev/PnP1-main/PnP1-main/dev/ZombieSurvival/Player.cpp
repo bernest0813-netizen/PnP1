@@ -27,6 +27,25 @@ int Player::attack()
 
 	return damage;
 }
+int Player::basicAttack()
+{
+	static std::random_device rd;
+	static std::mt19937 gen(rd());
+	std::uniform_int_distribution<int> chance(1, 100);
+
+	int damage = attackPower;
+
+	if (chance(gen) <= 20)
+	{
+		damage *= 2;
+		std::cout << "\nCRITICAL HIT!\n";
+	}
+
+	std::cout << "You perform a basic attack for "
+		<< damage << " damage.\n";
+
+	return damage;
+}
 
 void Player::takeDamage(int damage)
 {

@@ -12,6 +12,7 @@ public:
 	Player();
 
 	int attack();
+	int basicAttack();
 	void takeDamage(int damage);
 	void heal();
 	void rewardHealth();
